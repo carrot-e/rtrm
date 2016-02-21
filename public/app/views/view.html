@@ -1,0 +1,28 @@
+<div class="container">
+    <h2 class="text-center">{{ map.title }}</h2>
+    <p class="text-center">
+        by <a href="#">@{{ map.user.name }}</a>
+    </p>
+
+
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-xs-6">
+            <gmap map-id="{{ mapId }}" is-edit="false"></gmap>
+        </div>
+        <div class="col-lg-6 col-md-6 col-xs-6" id="story">
+            <div class="story-description">
+                <p>
+                    {{ map.description }}
+                </p>
+            </div>
+            <div ng-repeat="(key, value) in points">
+                <div ng-if="value.description" class="story-point" id="point-{{ value.id }}">
+                    <view-point point-id="{{ value.id }}"></view-point>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

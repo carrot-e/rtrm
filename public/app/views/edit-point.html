@@ -1,0 +1,10 @@
+<div class="edit-point-form" style="width: {{ width }}px">
+    <form>
+        <div class="form-group">
+            <textarea ui-tinymce="tinymceOptions" class="form-control" rows="5" ng-model="currentPoint.description" placeholder="Tell about your journey a few words..."></textarea>
+        </div>
+    </form>
+
+    <a class="btn btn-primary" ng-click="savePointDetails(currentPoint)">Save the point</a>
+    <a class="btn btn-danger" ng-click="deleteMarker(currentPoint.id)">Delete the point</a>
+</div>

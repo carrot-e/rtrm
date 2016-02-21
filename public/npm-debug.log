@@ -1,0 +1,187 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'medium-editor' ]
+2 info using npm@1.3.10
+3 info using node@v0.10.25
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'medium-editor', null ]
+6 verbose cache add name=undefined spec="medium-editor" args=["medium-editor",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'medium-editor',
+7 verbose parsed url   path: 'medium-editor',
+7 verbose parsed url   href: 'medium-editor' }
+8 silly lockFile 22fd0b49-medium-editor medium-editor
+9 verbose lock medium-editor /home/carrot/.npm/22fd0b49-medium-editor.lock
+10 silly lockFile 22fd0b49-medium-editor medium-editor
+11 silly lockFile 22fd0b49-medium-editor medium-editor
+12 verbose addNamed [ 'medium-editor', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile a6bb6b1e-medium-editor medium-editor@
+15 verbose lock medium-editor@ /home/carrot/.npm/a6bb6b1e-medium-editor.lock
+16 silly addNameRange { name: 'medium-editor', range: '*', hasData: false }
+17 verbose url raw medium-editor
+18 verbose url resolving [ 'https://registry.npmjs.org/', './medium-editor' ]
+19 verbose url resolved https://registry.npmjs.org/medium-editor
+20 info trying registry request attempt 1 at 20:53:13
+21 http GET https://registry.npmjs.org/medium-editor
+22 http 200 https://registry.npmjs.org/medium-editor
+23 silly registry.get cb [ 200,
+23 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+23 silly registry.get     etag: '"AS7AFKZPGBUBKMU6TQG3TWL5V"',
+23 silly registry.get     'content-type': 'application/json',
+23 silly registry.get     'cache-control': 'max-age=300',
+23 silly registry.get     'content-length': '220955',
+23 silly registry.get     'accept-ranges': 'bytes',
+23 silly registry.get     date: 'Thu, 28 Jan 2016 18:53:13 GMT',
+23 silly registry.get     via: '1.1 varnish',
+23 silly registry.get     age: '21',
+23 silly registry.get     connection: 'keep-alive',
+23 silly registry.get     'x-served-by': 'cache-fra1222-FRA',
+23 silly registry.get     'x-cache': 'HIT',
+23 silly registry.get     'x-cache-hits': '1',
+23 silly registry.get     'x-timer': 'S1454007193.590242,VS0,VE0',
+23 silly registry.get     vary: 'Accept' } ]
+24 silly addNameRange number 2 { name: 'medium-editor', range: '*', hasData: true }
+25 silly addNameRange versions [ 'medium-editor',
+25 silly addNameRange   [ '1.1.1',
+25 silly addNameRange     '1.7.1',
+25 silly addNameRange     '1.7.0',
+25 silly addNameRange     '1.6.0',
+25 silly addNameRange     '1.5.0',
+25 silly addNameRange     '1.4.0',
+25 silly addNameRange     '1.3.0',
+25 silly addNameRange     '1.7.2',
+25 silly addNameRange     '1.7.3',
+25 silly addNameRange     '1.7.5',
+25 silly addNameRange     '1.8.0',
+25 silly addNameRange     '1.8.5',
+25 silly addNameRange     '1.8.6',
+25 silly addNameRange     '1.8.8',
+25 silly addNameRange     '1.8.14',
+25 silly addNameRange     '1.9.4',
+25 silly addNameRange     '1.9.7',
+25 silly addNameRange     '1.9.8',
+25 silly addNameRange     '1.9.13',
+25 silly addNameRange     '2.0.0',
+25 silly addNameRange     '2.1.0',
+25 silly addNameRange     '2.1.2',
+25 silly addNameRange     '2.1.3',
+25 silly addNameRange     '2.2.0',
+25 silly addNameRange     '2.3.0',
+25 silly addNameRange     '2.4.0',
+25 silly addNameRange     '2.4.1',
+25 silly addNameRange     '2.4.2',
+25 silly addNameRange     '2.4.3',
+25 silly addNameRange     '2.4.4',
+25 silly addNameRange     '2.4.5',
+25 silly addNameRange     '2.4.6',
+25 silly addNameRange     '3.0.0',
+25 silly addNameRange     '3.0.7',
+25 silly addNameRange     '3.0.8',
+25 silly addNameRange     '3.0.9',
+25 silly addNameRange     '4.0.0',
+25 silly addNameRange     '4.0.1',
+25 silly addNameRange     '4.0.2',
+25 silly addNameRange     '4.0.3',
+25 silly addNameRange     '4.1.0',
+25 silly addNameRange     '4.1.1',
+25 silly addNameRange     '4.2.0',
+25 silly addNameRange     '4.3.0',
+25 silly addNameRange     '4.4.0',
+25 silly addNameRange     '4.5.0',
+25 silly addNameRange     '4.5.1',
+25 silly addNameRange     '4.5.2',
+25 silly addNameRange     '4.6.0',
+25 silly addNameRange     '4.7.0',
+25 silly addNameRange     '4.7.1',
+25 silly addNameRange     '4.7.2',
+25 silly addNameRange     '4.7.3',
+25 silly addNameRange     '4.8.0',
+25 silly addNameRange     '4.8.1',
+25 silly addNameRange     '4.9.0',
+25 silly addNameRange     '4.10.0',
+25 silly addNameRange     '4.10.1',
+25 silly addNameRange     '4.10.2',
+25 silly addNameRange     '4.11.0',
+25 silly addNameRange     '4.11.1',
+25 silly addNameRange     '4.12.0',
+25 silly addNameRange     '4.12.1',
+25 silly addNameRange     '5.0.0-alpha.0',
+25 silly addNameRange     '4.12.2',
+25 silly addNameRange     '4.12.3',
+25 silly addNameRange     '4.12.4',
+25 silly addNameRange     '4.12.5',
+25 silly addNameRange     '5.0.0-rc.1',
+25 silly addNameRange     '5.0.0',
+25 silly addNameRange     '5.1.0',
+25 silly addNameRange     '4.12.6',
+25 silly addNameRange     '5.2.0',
+25 silly addNameRange     '5.3.0',
+25 silly addNameRange     '5.4.0',
+25 silly addNameRange     '5.4.1',
+25 silly addNameRange     '5.5.0',
+25 silly addNameRange     '5.5.1',
+25 silly addNameRange     '5.5.2',
+25 silly addNameRange     '5.5.3',
+25 silly addNameRange     '5.5.4',
+25 silly addNameRange     '4.12.7',
+25 silly addNameRange     '5.6.0',
+25 silly addNameRange     '4.12.8',
+25 silly addNameRange     '5.6.1',
+25 silly addNameRange     '5.6.2',
+25 silly addNameRange     '4.12.9',
+25 silly addNameRange     '4.12.10',
+25 silly addNameRange     '4.12.11',
+25 silly addNameRange     '5.6.3',
+25 silly addNameRange     '5.7.0',
+25 silly addNameRange     '5.8.0',
+25 silly addNameRange     '5.8.1',
+25 silly addNameRange     '5.8.2',
+25 silly addNameRange     '5.8.3',
+25 silly addNameRange     '5.9.0',
+25 silly addNameRange     '5.10.0',
+25 silly addNameRange     '4.12.12',
+25 silly addNameRange     '5.11.0',
+25 silly addNameRange     '5.12.0',
+25 silly addNameRange     '5.13.0' ] ]
+26 verbose addNamed [ 'medium-editor', '5.13.0' ]
+27 verbose addNamed [ '5.13.0', '5.13.0' ]
+28 silly lockFile 846235e1-medium-editor-5-13-0 medium-editor@5.13.0
+29 verbose lock medium-editor@5.13.0 /home/carrot/.npm/846235e1-medium-editor-5-13-0.lock
+30 silly lockFile 59d57297--editor-medium-editor-5-13-0-tgz https://registry.npmjs.org/medium-editor/-/medium-editor-5.13.0.tgz
+31 verbose lock https://registry.npmjs.org/medium-editor/-/medium-editor-5.13.0.tgz /home/carrot/.npm/59d57297--editor-medium-editor-5-13-0-tgz.lock
+32 verbose addRemoteTarball [ 'https://registry.npmjs.org/medium-editor/-/medium-editor-5.13.0.tgz',
+32 verbose addRemoteTarball   '71b47b105d8989974a68d9081d34fe713aa86de0' ]
+33 silly lockFile 59d57297--editor-medium-editor-5-13-0-tgz https://registry.npmjs.org/medium-editor/-/medium-editor-5.13.0.tgz
+34 silly lockFile 59d57297--editor-medium-editor-5-13-0-tgz https://registry.npmjs.org/medium-editor/-/medium-editor-5.13.0.tgz
+35 silly lockFile 846235e1-medium-editor-5-13-0 medium-editor@5.13.0
+36 silly lockFile 846235e1-medium-editor-5-13-0 medium-editor@5.13.0
+37 silly lockFile a6bb6b1e-medium-editor medium-editor@
+38 silly lockFile a6bb6b1e-medium-editor medium-editor@
+39 error Error: EACCES, mkdir '/home/carrot/tmp/npm-5673-ykVJy0l5'
+39 error  { [Error: EACCES, mkdir '/home/carrot/tmp/npm-5673-ykVJy0l5']
+39 error   errno: 3,
+39 error   code: 'EACCES',
+39 error   path: '/home/carrot/tmp/npm-5673-ykVJy0l5' }
+40 error Please try running this command again as root/Administrator.
+41 error System Linux 3.19.0-31-generic
+42 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "--save" "medium-editor"
+43 error cwd /home/carrot/code/the-journey/public
+44 error node -v v0.10.25
+45 error npm -v 1.3.10
+46 error path /home/carrot/tmp/npm-5673-ykVJy0l5
+47 error code EACCES
+48 error errno 3
+49 error stack Error: EACCES, mkdir '/home/carrot/tmp/npm-5673-ykVJy0l5'
+50 verbose exit [ 3, true ]
