@@ -36,7 +36,6 @@
     </div>
     <div ng-view=""></div>
 </div>
-@endif
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkN6suhbmGdtL6pD6ax1K5pB3hfhUVfpI&libraries=visualization"></script>
 <script src="/bower_components/jquery/dist/jquery.js"></script>
 <script src="/bower_components/angular/angular.js"></script>
@@ -52,8 +51,6 @@
 <script src="/app/scripts/directives/view-point.js"></script>
 <script src="/bower_components/tinymce-dist/tinymce.min.js"></script>
 <script src="/bower_components/angular-ui-tinymce/src/tinymce.js"></script>
-<script>
-
-</script>
+@endif
 </body>
 </html>
