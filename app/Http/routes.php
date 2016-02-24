@@ -27,7 +27,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('auth/google', 'Auth\AuthController@google');
     Route::get('auth-callback', 'Auth\AuthController@callback');
     Route::get('map/{id}', 'MapController@show');
+    Route::get('maps', 'MapController@index');
     Route::get('map/{id}/points', 'MapController@getPoints');
+    Route::get('user/{id}/maps', 'MapController@getUserMaps');
 
     Route::get('/', function()
     {

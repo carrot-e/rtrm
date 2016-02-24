@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Map;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use DB;
 use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -20,7 +22,22 @@ class MapController extends Controller
      */
     public function index()
     {
-        //
+        return Map::with('user')->orderBy('created_at')
+                                ->where(['is_public' => 1])
+                                ->limit(50)
+                                ->get();
+    }
+
+    public function getUserMaps($userId)
+    {
+        $maps = Map::with('user')->orderBy('created_at')->limit(50);
+        if ($userId != Auth::user()->id) {
+            $maps->where(['is_public' => 1, 'user_id' => $userId]);
+        } else {
+            $maps->where(['user_id' => $userId]);
+        }
+
+        return json_encode(['maps' => $maps->get(), 'author' => User::find($userId)]);
     }
 
     /**
@@ -35,7 +52,9 @@ class MapController extends Controller
 
     public function test()
     {
-        dd(\App\Point::find(98)->map->user);
+//        dd(Map::with('user')->get());
+dd(        Map::with('user')->orderBy('created_at')->where(['is_public' => 1])->limit(50)->get()
+    );
         die;
     }
 

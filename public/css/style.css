@@ -53,7 +53,7 @@ h1, h1:hover {
     font-family: 'Work Sans', sans-serif;
     font-weight: 200;
     background-color: #dc4550;
-    color: #ffffff;
+    color: #fff;
     font-size: 30px;
     text-decoration: none;
     display: inline-block;
@@ -70,6 +70,10 @@ textarea {
 }
 #gmap {
     width: 100%;
+}
+.list h2,
+.list .row {
+    margin-bottom: 30px;
 }
 .footer {
     margin: 10px auto;

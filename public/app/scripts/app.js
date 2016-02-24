@@ -24,6 +24,11 @@ app.config(function ($routeProvider) {
             controller: 'MainCtrl',
             controllerAs: 'main'
         })
+        .when('/user/:id', {
+            templateUrl: 'app/views/user-maps.html',
+            controller: 'MainCtrl',
+            controllerAs: 'main'
+        })
         .when('/journey/:id', {
             templateUrl: 'app/views/view.html',
             controller: 'ViewCtrl',
@@ -50,6 +55,13 @@ app.config(function ($routeProvider) {
  */
 app.factory('Data', function Data($http) {
     return {
+        getMaps: function getMaps(userId) {
+            if (userId) {
+                return $http.get('/user/' + userId + '/maps');
+            } else {
+                return $http.get('/maps');
+            }
+        },
         getMap: function getMap(id) { return $http.get('/map/' + id); },
         getPointsByMap: function getPointsByMap(id) { return $http.get('/map/' + id + '/points'); },
         storeMap: function storeMap(data) { return $http.post('/map/store', data); },

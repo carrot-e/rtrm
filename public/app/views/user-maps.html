@@ -1,12 +1,12 @@
 <div class="container list">
     <div class="row">
         <div class="col-md-12 col-xs-12">
-            <h2 class="title text-center">Explore the world</h2>
+            <img class="img-circle img-responsive center-block" src="{{ maps.author.photo }}" width="50"/>
+            <h2 class="title text-center">{{ maps.author.name }}</h2>
         </div>
     </div>
-    <div class="row" ng-repeat="map in maps">
+    <div class="row" ng-repeat="map in maps.maps">
         <a href="#/journey/{{ map.id }}"><h3>{{ map.title }}</h3></a>
-        <p>by {{map.user.name }}</p>
         {{ map.description }}
     </div>
 </div>
