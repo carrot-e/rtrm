@@ -23,15 +23,20 @@
 <!-- Add your site or application content here -->
 <div class="header">
     <div class="navbar navbar-main" role="navigation">
-        <a href="#">
-            <h1>Routerium</h1>
-        </a>
+
         {{--<p class="sub-logo">Your journey told sweet</p>--}}
         <div class="col-md-12">
             <ul class="list-inline">
-                <li>{{ Auth::user()->name }}:</li>
-                <li><a href="">My journeys</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li class="pull-left">
+                    <a href="/#/">
+                        <h1>Routerium</h1>
+                    </a>
+                </li>
+                <ul class="list-inline pull-right">
+                    <li>{{ Auth::user()->name }}:</li>
+                    <li><a href="/#/user/{{ Auth::user()->id }}">My journeys</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
             </ul>
         </div>
     </div>
