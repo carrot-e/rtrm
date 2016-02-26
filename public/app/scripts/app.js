@@ -34,7 +34,7 @@ app.config(function ($routeProvider) {
             controller: 'ViewCtrl',
             controllerAs: 'view'
         })
-        .when('/tell-your-story/:id?', {
+        .when('/tell-your-journey/:id?', {
             templateUrl: 'app/views/edit.html',
             controller: 'EditCtrl',
             controllerAs: 'edit'

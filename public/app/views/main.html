@@ -5,8 +5,11 @@
         </div>
     </div>
     <div class="row" ng-repeat="map in maps">
+        <div ng-if="map.photo" class="image-container">
+            <img ng-src="{{ map.photo }}" class="img-responsive">
+        </div>
         <a href="#/journey/{{ map.id }}"><h3>{{ map.title }}</h3></a>
-        <p>by {{map.user.name }}</p>
+        <p>by <a href="/#/{{ map.user.id }}">@{{ map.user.name }}</a></p>
         {{ map.description }}
     </div>
 </div>

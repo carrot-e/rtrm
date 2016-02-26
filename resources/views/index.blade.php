@@ -25,18 +25,18 @@
     <div class="navbar navbar-main" role="navigation">
 
         {{--<p class="sub-logo">Your journey told sweet</p>--}}
-        <div class="col-md-12">
+        <div class="col-md-12 col-xs-12 text-left">
+
             <ul class="list-inline">
-                <li class="pull-left">
+                <li>
                     <a href="/#/">
-                        <h1>Routerium</h1>
+                        <h1>Routerium</h1><span class="alpha">α</span>
                     </a>
                 </li>
-                <ul class="list-inline pull-right">
-                    <li>{{ Auth::user()->name }}:</li>
-                    <li><a href="/#/user/{{ Auth::user()->id }}">My journeys</a></li>
-                    <li><a href="/logout">Logout</a></li>
-                </ul>
+                <li>{{ Auth::user()->name }}:</li>
+                <li><a href="/#/tell-your-journey">Add new journey</a></li>
+                <li><a href="/#/user/{{ Auth::user()->id }}">My journeys</a></li>
+                <li><a href="/logout">Logout</a></li>
             </ul>
         </div>
     </div>

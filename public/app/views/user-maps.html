@@ -6,6 +6,9 @@
         </div>
     </div>
     <div class="row" ng-repeat="map in maps.maps">
+        <div ng-if="map.photo" class="image-container">
+            <img ng-src="{{ map.photo }}" class="img-responsive">
+        </div>
         <a href="#/journey/{{ map.id }}"><h3>{{ map.title }}</h3></a>
         {{ map.description }}
     </div>

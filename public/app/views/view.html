@@ -1,7 +1,7 @@
 <div class="container">
-    <h2 class="text-center">{{ map.title }}</h2>
+    <h2 class="text-center">{{ map.title }} <a ng-if="map.user.id == user.id" href="/#/tell-your-journey/{{ map.id }}">[edit]</a></h2>
     <p class="text-center">
-        by <a href="#">@{{ map.user.name }}</a>
+        by <a href="/#/user/{{ map.user.id }}">@{{ map.user.name }}</a>
     </p>
 
 
