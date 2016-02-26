@@ -1,9 +1,6 @@
 html, body, .landing {
     height: 100%;
 }
-.landing {
-
-}
 .image::before {
     opacity: 0.9;
     background: url(../img/photo-1421218108559-eb1ff78357f5.jpg);
@@ -17,12 +14,9 @@ html, body, .landing {
     height: 100%;
     z-index: -1;
 }
-/*
-.image {
-    background: url(../img/photo-1444351274028-b348e6da5f67.jpg);
-    background-size: cover;
-    background-position: center;
-}*/
+a.btn {
+    color: #fff;
+}
 .sub-heading {
     font-size: 3rem;
     color: #fff;
