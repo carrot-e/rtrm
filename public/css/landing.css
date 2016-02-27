@@ -53,15 +53,4 @@ h2 {
 .illustration {
     max-height: 100%;
     margin-bottom: 20px;
-    background-size: cover;
-    background-position: center;
-}
-.illustration.tell {
-    background: url(../img/screens/edit.png);
-}
-.illustration.explore {
-    background: url(../img/screens/list.png);
-}
-.illustration.plan {
-    background: url(../img/screens/plan.png);
 }
