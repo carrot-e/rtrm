@@ -39,6 +39,7 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('map/store', 'MapController@store');
+
     Route::post('point/store', 'PointController@store');
     Route::delete('point/{id}', 'PointController@destroy');
 

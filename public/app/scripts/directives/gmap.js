@@ -86,7 +86,7 @@ app.directive('gmap', function($location, $compile, Data) {
             initListeners();
 
             if (attrs.mapId) {
-                Data.getPointsByMap(attrs.mapId).success(setMarkers);
+                Data.getPointsByMap(attrs.mapId).success(drawMarkers);
             }
         }
 
@@ -107,7 +107,10 @@ app.directive('gmap', function($location, $compile, Data) {
          * @param e {Event}
          */
         function addMark(e) {
-            var marker = setMarker(map, e.latLng);
+            if (typeof infoWindow !== 'undefined' && infoWindow.map !== null) {
+                return;
+            }
+            var marker = drawMarker(map, e.latLng);
             savePoint({coordinates: e.latLng, description: ''}, marker);
         }
 
@@ -153,7 +156,7 @@ app.directive('gmap', function($location, $compile, Data) {
          *
          * @param data
          */
-        function setMarkers(data) {
+        function drawMarkers(data) {
             var i = 0,
                 numberOfMarkers = data.length,
                 latLng = [];
@@ -161,22 +164,20 @@ app.directive('gmap', function($location, $compile, Data) {
 
             for (i; i < numberOfMarkers; i++) {
                 latLng = data[i].coordinates.split(',');
-                var marker = setMarker(map,
-                          new google.maps.LatLng(latLng[0], latLng[1]),
-                          '',
+                var marker = drawMarker(map,
+                          new google.maps.LatLng(latLng[0], latLng[1]), data[i].id,
                           data[i].description);
-                marker.pointId = data[i].id;
                 scope.markers.push(marker);
             }
 
-            buildPolyline();
+            drawPolyline();
         }
 
         /**
          * builds polyline according to current scope.markers array
          *
          */
-        function buildPolyline() {
+        function drawPolyline() {
             if (polyline) {
                 polyline.setMap(null);
                 polyline = null;
@@ -202,23 +203,39 @@ app.directive('gmap', function($location, $compile, Data) {
          *
          * @param map
          * @param position
-         * @param title
+         * @param id
          * @param content
          * @returns {google.maps.Marker|*}
          */
-        function setMarker(map, position, title, content) {
+        function drawMarker(map, position, id, content) {
             var marker;
-            var maxInfoboxSize = 0.75;
             var markerOptions = {
                 position: position,
                 map: map,
-                title: title,
                 draggable: scope.isEdit ? true : false
                 //icon: '/app/images/map.svg'
             };
 
             marker = new google.maps.Marker(markerOptions);
+            marker.pointId = id;
+            if (marker.pointId) {
+                initMarkerPopup(marker);
+            }
 
+
+            google.maps.event.addListener(marker, 'dragend', function(e) {
+                savePoint({coordinates: e.latLng, id: marker.pointId}, marker);
+            });
+
+            return marker;
+        }
+
+        /**
+         * add click listener to marker
+         * @param marker
+         */
+        function initMarkerPopup(marker) {
+            var maxInfoboxSize = 0.75;
             google.maps.event.addListener(marker, 'click', function () {
                 // close window if not undefined
                 if (typeof infoWindow !== 'undefined') {
@@ -227,11 +244,6 @@ app.directive('gmap', function($location, $compile, Data) {
 
                 // in view mode -- no need to create InfoWindow
                 if (!scope.isEdit) {
-                    //for (var i = 0; i < scope.points.length; i++) {
-                    //    if (marker.pointId == scope.points[i].id && !scope.points[i].description) {
-                    //        return true;
-                    //    }
-                    //}
                     return;
                 }
 
@@ -256,13 +268,6 @@ app.directive('gmap', function($location, $compile, Data) {
 
                 infoWindow.open(map, marker);
             });
-
-
-            google.maps.event.addListener(marker, 'dragend', function(e) {
-                savePoint({coordinates: e.latLng, id: marker.pointId}, marker);
-            });
-
-            return marker;
         }
 
         /**
@@ -275,37 +280,37 @@ app.directive('gmap', function($location, $compile, Data) {
             var coordinates = data.coordinates.lat() + ',' + data.coordinates.lng();
             data.mapId = attrs.mapId;
             data.coordinates = coordinates;
-            if (data.id) {
-                for (var i = 0; i < scope.markers.length; i++) {
-                    if (scope.markers[i].pointId == data.id) {
-                        data.order = i;
-                        break;
-                    }
-                }
-            } else {
-                data.order = scope.markers.length;
-            }
+            data.order = 1; // this is not used so far
             Data.storePoint(data).success(function(response) {
                 marker.pointId = response;
+                initMarkerPopup(marker);
+                google.maps.event.trigger(marker, 'click');
 
                 if (!data.id) {
                     scope.markers.push(marker);
+                    Data.getPointsByMap(attrs.mapId).success(function(response) {
+                        scope.points = response;
+                    });
                 }
 
-                buildPolyline();
+                drawPolyline();
             });
 
             saveMap();
         }
 
+        /**
+         * UI: saves point details
+         * @param point
+         */
         scope.savePointDetails = function savePointDetails(point) {
-            //var pointData = [];
-            //for (var i = 0; i < scope.points.length; i++) {
-            //    console.log(scope.points[i]);
-            //}
             Data.storePoint({id: point.id, description: point.description});
         };
 
+        /**
+         * UI: pans to point
+         * @param pointId
+         */
         scope.panToPoint = function panToPoint(pointId) {
             for (var i = 0; i < scope.markers.length; i++) {
                 if (scope.markers[i].pointId == pointId) {
@@ -316,6 +321,10 @@ app.directive('gmap', function($location, $compile, Data) {
             }
         }
 
+        /**
+         * UI: deletes marker
+         * @param pointId
+         */
         scope.deleteMarker = function deleteMarker(pointId) {
             Data.deletePoint(pointId).success(function() {
                 for (var i = 0; i < scope.markers.length; i++) {
@@ -325,7 +334,7 @@ app.directive('gmap', function($location, $compile, Data) {
                         break;
                     }
                 }
-                buildPolyline();
+                drawPolyline();
             });
         }
     };
