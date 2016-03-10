@@ -69,12 +69,5 @@ app.factory('Data', function Data($http) {
         deletePoint: function deletePoint(id) { return $http.delete('/point/' + id); },
         getUser: function getUser() { return $http.get('/auth/user'); }
         //editMap: function editMap(data) { return $http.post('/map/edit', data); },
-        //getWordsForGame: function getWordsForGame() { return $http.get('/words/game'); },
-        //getWord: function getWord(id) { return $http.get('/words?id=' + id); },
-        //addWord: function addWord(data) { return $http.post('/words', data); },
-        //editWord: function editWord(data) { return $http.post('/words', data); },
-        //removeWord: function removeWord(id) { return $http.delete('/words?id='+ id); },
-        //addProcess: function addProcess(data) { return $http.post('/process', data); },
-        //getStatistics: function getStatistics() { return $http.get('/stats'); }
     };
 });

@@ -50,6 +50,7 @@ app.directive('gmap', function($location, $compile, Data) {
         scope.markers = [];
 
         if (attrs.mapId) {
+            scope.mapId = attrs.mapId;
             Data.getMap(attrs.mapId).success(initMap);
         } else {
             initMap({center: '0,0', zoom: 2});
@@ -288,9 +289,6 @@ app.directive('gmap', function($location, $compile, Data) {
 
                 if (!data.id) {
                     scope.markers.push(marker);
-                    Data.getPointsByMap(attrs.mapId).success(function(response) {
-                        scope.points = response;
-                    });
                 }
 
                 drawPolyline();
@@ -305,6 +303,7 @@ app.directive('gmap', function($location, $compile, Data) {
          */
         scope.savePointDetails = function savePointDetails(point) {
             Data.storePoint({id: point.id, description: point.description});
+            infoWindow.close();
         };
 
         /**
@@ -315,7 +314,7 @@ app.directive('gmap', function($location, $compile, Data) {
             for (var i = 0; i < scope.markers.length; i++) {
                 if (scope.markers[i].pointId == pointId) {
                     map.panTo(scope.markers[i].position);
-                    map.setZoom(7);
+                    map.setZoom(scope.map.zoom + 1);
                     break;
                 }
             }
