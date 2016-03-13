@@ -4,7 +4,14 @@
             <input class="form-control" type="text" ng-model="map.title" placeholder="Journey title">
         </div>
         <div class="form-group">
+            <input class="form-control" type="text" ng-model="map.photo" placeholder="Photo URL">
+        </div>
+        <div class="form-group">
             <textarea class="form-control" rows="3" ng-model="map.description" placeholder="Tell about your journey a few words..."></textarea>
+        </div>
+        <div class="form-group text-center">
+            <button class="btn btn-danger btn-lg" ng-if="map.is_public" ng-click="saveMapVisibility(0)">Unpublish</button>
+            <button class="btn btn-primary btn-lg" ng-if="!map.is_public" ng-click="saveMapVisibility(1)">Publish</button>
         </div>
     </form>
 </div>

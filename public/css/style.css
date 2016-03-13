@@ -85,15 +85,8 @@ textarea {
     width: 100%;
 }
 .list h2,
-.list .row {
-    margin-bottom: 30px;
-}
-.image-container {
-    margin-top: 50px;
-}
-.image-container + a {
-    display: block;
-    margin-top: 10px;
+.list .row-map {
+    margin-bottom: 50px;
 }
 .footer {
     margin: 10px auto;

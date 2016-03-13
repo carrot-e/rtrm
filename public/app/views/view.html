@@ -13,9 +13,10 @@
         </div>
         <div class="col-lg-6 col-md-6 col-xs-6" id="story">
             <div class="story-description">
-                <p>
-                    {{ map.description }}
-                </p>
+                <div mg-if="map.photo" class="image-container">
+                    <img ng-src="{{ map.photo }}" width="100%" />
+                </div>
+                <p>{{ map.description }}</p>
             </div>
             <div ng-repeat="(key, value) in points">
                 <div ng-if="value.description" class="story-point" id="point-{{ value.id }}">

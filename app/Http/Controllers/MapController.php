@@ -75,12 +75,25 @@ dd(        Map::with('user')->orderBy('created_at')->where(['is_public' => 1])->
             $map = new Map;
             $map->user_id = Auth::user()->id;
         }
-        $center = $request->center['lat'] . ',' . $request->center['lng'];
-
-        $map->zoom = $request->zoom;
-        $map->description = $request->description;
-        $map->title = $request->title;
-        $map->center = $center;
+        if ($request->center !== null) {
+            $center = $request->center['lat'] . ',' . $request->center['lng'];
+            $map->center = $center;
+        }
+        if ($request->zoom !== null) {
+            $map->zoom = $request->zoom;
+        }
+        if ($request->description !== null) {
+            $map->description = $request->description;
+        }
+        if ($request->title !== null) {
+            $map->title = $request->title;
+        }
+        if ($request->is_public !== null) {
+            $map->is_public = $request->is_public;
+        }
+        if ($request->photo !== null) {
+            $map->photo = $request->photo;
+        }
 
         $map->save();
 

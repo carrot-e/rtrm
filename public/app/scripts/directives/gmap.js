@@ -125,6 +125,7 @@ app.directive('gmap', function($location, $compile, Data) {
                 center: map.getCenter(),
                 zoom: map.getZoom(),
                 title: scope.map.title,
+                photo: scope.map.photo,
                 description: scope.map.description
             };
 

@@ -7,12 +7,7 @@
  * # EditCtrl
  * Controller of the publicApp
  */
-app.controller('EditCtrl', function ($scope, $routeParams, Data) {
-    //temp data!
-    //$scope.user = {
-    //    id: 1,
-    //    name: 'cathykroll'
-    //};
+app.controller('EditCtrl', function ($scope, $routeParams, $location, Data) {
 
     $scope.isEdit = true;
     $scope.mapId = $routeParams.id;
@@ -37,5 +32,26 @@ app.controller('EditCtrl', function ($scope, $routeParams, Data) {
         statusbar: false,
         toolbar: 'undo redo | bold italic | bullist link image',
         height: 300
+    };
+
+    /**
+     * UI: saves map details
+     * @param map
+     */
+    $scope.saveMapVisibility = function saveMapVisibility(isPublic) {
+        Data.storeMap({
+            id: $scope.mapId,
+            is_public: isPublic,
+            photo: $scope.map.photo,
+            title: $scope.map.title,
+            description: $scope.map.description,
+        }).success(function() {
+            if (isPublic) {
+                $location.path('/journey/' + $scope.mapId);
+                $location.replace();
+            } else {
+                $scope.map.is_public = isPublic;
+            }
+        });
     };
 });
