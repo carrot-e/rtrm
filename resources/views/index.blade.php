@@ -5,6 +5,7 @@
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="RdPr_Xe897UsknsB_Fj03fqZxBAuagidQBeLaLNz2CA" />
+    <meta name="google-site-verification" content="FAZVVKgYoVJhxIF-_JLzOYPWH72mKjJOpxox3DFa_mo" />
     <link rel="icon" href="/img/favicon.ico">
     <title>Routerium</title>
     <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,200' rel='stylesheet' type='text/css'>
