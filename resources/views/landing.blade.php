@@ -42,7 +42,12 @@
     </div>
     <div class="footer">
         <div class="container">
-            <p class="text-center"><span class="glyphicon glyphicon-heart"></span><br> {{ date('Y') }}</p>
+            <p class="text-center"><span class="glyphicon glyphicon-heart"></span>
+                <br />
+                <a href="mailto:hello@routerium.com">hello@routerium.com</a>
+                <br />
+                {{ date('Y') }}
+            </p>
         </div>
     </div>
 </div>
